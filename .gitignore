@@ -11,3 +11,4 @@ node_modules/
 .DS_Store
 dtpl.*.log
 yarn-*.log
+lerna-*.log

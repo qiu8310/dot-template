@@ -19,4 +19,4 @@ dot-template 命令行工具，vscode 中可以安装 [dot-template vscode 插�
    使用 `dtpl revoke` 来撤销或重做上一次命令（只能撤销一次，并且要在 1 分钟内，因为文件很容易被更新，撤销容易丢失文件）
 
 
-## 更多详情请查看 [dot-template](https://github.com/ikcamp/dot-template)
+## 更多详情请查看 [dot-template](https://github.com/qiu8310/dot-template)
