@@ -4,7 +4,7 @@ src/**
 res/doc-images/
 tsconfig.json
 TODO.md
-yarn*
+yarn-*
 coverage/**
 .nyc_output/**
 .DS_Store

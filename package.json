@@ -6,11 +6,12 @@
 		"node": "^8.0.0"
 	},
 	"config": {
-    "hooks": {
-      "commit-msg": true
-    }
-  },
+		"hooks": {
+			"commit-msg": true
+		}
+	},
 	"devDependencies": {
-		"lerna": "^2.7.1"
+		"lerna": "^2.7.1",
+		"mora-scripts": "1.6.19"
 	}
 }

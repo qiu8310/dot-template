@@ -3,7 +3,7 @@ out/**/*.map
 src/**
 tsconfig.json
 TODO.md
-yarn*
+yarn-*
 
 .DS_Store
 .nyc_output/

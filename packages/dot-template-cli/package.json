@@ -1,12 +1,12 @@
 {
   "name": "dot-template-cli",
   "description": "create new files according to pre-defined templates",
-  "version": "0.2.6",
+  "version": "0.0.0",
   "license": "MIT",
   "scripts": {
     "clear": "rm -rf out",
     "build": "npm run clear && tsc -p ./",
-    "watch": "tsc -watch -p ./"
+    "watch": "npm run clear && tsc -watch -p ./"
   },
   "bin": {
     "dtpl": "out/cli.js"
