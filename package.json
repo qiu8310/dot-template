@@ -5,7 +5,7 @@
 	"scripts": {
 		"prepublish": "npm run build",
 		"publish": "lerna publish --registry https://registry.npmjs.org/",
-		"clear": "rimraf out",
+		"clear": "remove-all out",
 		"build": "npm run clear && tsc -p ./",
 		"watch": "npm run clear && tsc -watch -p ./",
 		"test": "lerna run test --ignore dot-template-vscode"
@@ -15,18 +15,20 @@
 	},
 	"config": {
 		"hooks": {
-			"commit-msg": true
+			"commit-msg": true,
+			"post-merge": true,
+			"pre-push": "npm run test"
 		}
 	},
 	"devDependencies": {
+		"@types/node": "^8.9.0",
 		"@types/fs-extra": "~5.0.0",
 		"fs-extra": "~5.0.0",
 		"lerna": "^2.7.1",
-		"mora-scripts": "1.6.19",
-		"rimraf": "2.6.2",
+		"mora-scripts": "~1.6.20",
 		"ts-node": "^4.1.0",
 		"tslib": "^1.9.0",
-		"typescript": "~2.7.1"
+		"typescript": "^2.7.1"
 	},
 	"dependencies": {}
 }

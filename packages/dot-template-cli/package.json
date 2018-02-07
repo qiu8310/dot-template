@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "prepublish": "npm run build",
-    "clear": "rimraf out",
+    "clear": "remove-all out",
     "build": "npm run clear && tsc -p ./",
     "watch": "npm run clear && tsc -watch -p ./"
   },
@@ -24,18 +24,18 @@
   },
   "devDependencies": {
     "@types/chokidar": "~1.7.3",
+    "@types/node": "^8.9.0",
     "@types/fs-extra": "~5.0.0",
     "@types/inquirer": "~0.0.35",
-    "rimraf": "2.6.2",
     "ts-node": "^4.1.0",
-    "typescript": "~2.7.1"
+    "typescript": "^2.7.1"
   },
   "dependencies": {
     "chokidar": "~2.0.0",
     "dot-template-core": "^0.0.2",
     "fs-extra": "~5.0.0",
     "inquirer": "~5.1.0",
-    "mora-scripts": "~1.6.12",
+    "mora-scripts": "~1.6.20",
     "tslib": "^1.9.0"
   }
 }
