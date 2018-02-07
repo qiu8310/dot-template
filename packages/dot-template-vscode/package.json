@@ -1,0 +1,247 @@
+{
+  "name": "dot-template-vscode",
+  "displayName": "Dot Template",
+  "description": "create new files according to pre-defined templates",
+  "version": "0.0.0",
+  "license": "MIT",
+  "publisher": "qiu8310",
+  "scripts": {
+    "clear": "rm -rf out",
+    "build": "npm run clear && tsc -p ./",
+    "watch": "npm run clear && tsc -watch -p ./",
+    "postinstall": "node ./node_modules/vscode/bin/install",
+    "test": "npm run build && node ./node_modules/vscode/bin/test",
+    "prepublish": "npm run build"
+  },
+  "engines": {
+    "vscode": "^1.17.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "dtpl",
+    "template",
+    "file",
+    "variable"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/qiu8310/dot-template"
+  },
+  "activationEvents": [
+    "*",
+    "onLanguage:dtpl",
+    "onCommand:dot-template-vscode.createTemplateFiles",
+    "onCommand:dot-template-vscode.createRelatedFiles",
+    "onCommand:dot-template-vscode.undoOrRedo"
+  ],
+  "main": "./out/vscode",
+  "icon": "res/images/icon.png",
+  "contributes": {
+    "configuration": {
+      "title": "dot-template-vscode",
+      "type": "object",
+      "properties": {
+        "dot-template-vscode.debug": {
+          "type": "boolean",
+          "default": false,
+          "description": "设置是否输出调试信息在项目根目录中的 dtpl.debug.log 文件中"
+        },
+        "dot-template-vscode.noExampleWhenCreateDtplFolder": {
+          "type": "boolean",
+          "default": false,
+          "description": "新建 .dtpl 文件夹时不要创建演示用的模板"
+        },
+        "dot-template-vscode.watchFilesGolbPattern": {
+          "type": "string",
+          "default": "**/*",
+          "description": "指定要监听的文件，使用了 minimatch 匹配，并开启了 dot=true，其它选项默认"
+        },
+        "dot-template-vscode.commandInvalidTimeout": {
+          "type": "number",
+          "default": 60000,
+          "description": "设置命令的有效时间，过期后就无法撤销或重新执行，单位毫秒"
+        },
+        "dot-template-vscode.dtplFolderName": {
+          "type": "string",
+          "default": ".dtpl",
+          "description": "文件夹的名称，用于存放模板文件及相关配置文件"
+        },
+        "dot-template-vscode.dtplExtension": {
+          "type": "string",
+          "default": ".dtpl",
+          "description": "指定 dtpl 模板文件的后缀名"
+        },
+        "dot-template-vscode.ejsExtension": {
+          "type": "string",
+          "default": ".ejs",
+          "description": "指定 ejs 模板文件的后缀名"
+        },
+        "dot-template-vscode.njkExtension": {
+          "type": "string",
+          "default": ".njk",
+          "description": "指定 nunjucks 模板文件的后缀名"
+        },
+        "dot-template-vscode.minimatchOptions": {
+          "type": "object",
+          "default": {
+            "matchBase": true,
+            "nocomment": true,
+            "dot": true
+          },
+          "description": "minimatch 的选项，用于匹配模板名称, 参考：https://github.com/isaacs/minimatch#options",
+          "properties": {
+            "nobrace": {
+              "type": "boolean",
+              "description": "Do not expand {a,b} and {1..3} brace sets"
+            },
+            "noglobstar": {
+              "type": "boolean",
+              "description": "Disable ** matching against multiple folder names"
+            },
+            "dot": {
+              "type": "boolean",
+              "description": "Allow patterns to match filenames starting with a period, even if the pattern does not explicitly have a period in that spot"
+            },
+            "noext": {
+              "type": "boolean",
+              "description": "Disable 'extglob style patterns like +(a|b)"
+            },
+            "nocase": {
+              "type": "boolean",
+              "description": "Perform a case-insensitive match"
+            },
+            "matchBase": {
+              "type": "boolean",
+              "description": "If set, then patterns without slashes will be matched against the basename of the path if it contains slashes"
+            },
+            "nocomment": {
+              "type": "boolean",
+              "description": "Suppress the behavior of treating # at the start of a pattern as a comment"
+            },
+            "nonegate": {
+              "type": "boolean",
+              "description": "Suppress the behavior of treating a leading ! character as negation"
+            },
+            "flipNegate": {
+              "type": "boolean",
+              "description": "Returns from negate expressions the same as if they were not negated. (Ie, true on a hit, false on a miss.)"
+            }
+          }
+        }
+      }
+    },
+    "commands": [
+      {
+        "command": "dot-template-vscode.createTemplateFiles",
+        "title": "DTPL: Create template files"
+      },
+      {
+        "command": "dot-template-vscode.createRelatedFiles",
+        "title": "DTPL: Create related files"
+      },
+      {
+        "command": "dot-template-vscode.undoOrRedo",
+        "title": "DTPL: Undo or Redo last action"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "dot-template-vscode.createTemplateFiles",
+        "key": "ctrl+k ctrl+p",
+        "mac": "cmd+k cmd+p"
+      },
+      {
+        "command": "dot-template-vscode.createRelatedFiles",
+        "key": "ctrl+k ctrl+s",
+        "mac": "cmd+k cmd+s"
+      },
+      {
+        "command": "dot-template-vscode.undoOrRedo",
+        "key": "ctrl+k ctrl+u",
+        "mac": "cmd+k cmd+u"
+      }
+    ],
+    "languages": [
+      {
+        "id": "dtpl",
+        "aliases": [
+          "Dot Template",
+          "dtpl"
+        ],
+        "extensions": [
+          ".dtpl"
+        ],
+        "configuration": "./res/language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "dtpl",
+        "scopeName": "source.dtpl",
+        "path": "./res/syntaxes/dtpl.tmLanguage.json"
+      }
+    ],
+    "snippets": [
+      {
+        "path": "./res/snippets/inject-docs.json",
+        "language": "javascript"
+      },
+      {
+        "path": "./res/snippets/inject-docs.json",
+        "language": "typescript"
+      },
+      {
+        "path": "./res/snippets/inject-docs.json",
+        "language": "javascriptreact"
+      },
+      {
+        "path": "./res/snippets/inject-docs.json",
+        "language": "typescriptreact"
+      },
+      {
+        "path": "./res/snippets/inject-docs.json",
+        "language": "css"
+      },
+      {
+        "path": "./res/snippets/inject-docs.json",
+        "language": "sass"
+      },
+      {
+        "path": "./res/snippets/inject-docs.json",
+        "language": "json"
+      },
+      {
+        "path": "./res/snippets/inject-hash.json",
+        "language": "gitignore"
+      },
+      {
+        "path": "./res/snippets/inject-hash.json",
+        "language": "shellscript"
+      },
+      {
+        "path": "./res/snippets/inject-html.json",
+        "language": "html"
+      },
+      {
+        "path": "./res/snippets/inject-html.json",
+        "language": "markdown"
+      }
+    ]
+  },
+  "devDependencies": {
+    "@types/fs-extra": "~5.0.0",
+    "@types/mocha": "~2.2.42",
+    "@types/node": "^8.0.0",
+    "mocha": "~5.0.0",
+    "ts-node": "^4.1.0",
+    "typescript": "~2.7.1",
+    "vscode": "~1.1.5"
+  },
+  "dependencies": {
+    "dot-template-core": "*",
+    "fs-extra": "~5.0.0",
+    "tslib": "^1.9.0"
+  }
+}

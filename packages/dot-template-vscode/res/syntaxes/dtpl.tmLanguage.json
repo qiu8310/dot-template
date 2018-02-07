@@ -1,0 +1,24 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "Dot Template",
+	"patterns": [
+		{
+			"include": "#keywords"
+		}
+	],
+	"repository": {
+		"keywords": {
+			"patterns": [
+				{
+					"name": "keyword.unquoted.dtpl",
+					"match": "(\\$[a-zA-Z][\\w]*)\\b"
+				},
+				{
+					"name": "keyword.quoted.dtpl",
+					"match": "(\\$\\{[a-zA-Z][\\w\\.]*\\})"
+				}
+			]
+		}
+	},
+	"scopeName": "source.dtpl"
+}

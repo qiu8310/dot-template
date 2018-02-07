@@ -1,6 +1,8 @@
+out
 packages/*/out
 packages/*/node_modules
 node_modules/
+.vscode-test
 
 .nyc_output/
 .DS_Store

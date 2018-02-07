@@ -1,0 +1,15 @@
+.vscode/**
+.vscode-test/**
+out/test/**
+out/**/*.map
+src/**
+.npmignore
+tsconfig.json
+vsc-extension-quickstart.md
+vsc-commands.md
+TODO.md
+yarn.lock
+coverage/**
+.nyc_output/**
+.DS_Store
+

@@ -12,6 +12,7 @@
     "dtpl": "out/cli.js"
   },
   "keywords": [
+    "dtpl",
     "template",
     "file",
     "variable"

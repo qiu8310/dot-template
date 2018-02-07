@@ -1,10 +1,13 @@
+.vscode/**
+.vscode-test/**
 out/test/**
 out/**/*.map
 src/**
-res/doc-images/
+.vscodeignore
 tsconfig.json
+vsc-extension-quickstart.md
+vsc-commands.md
 TODO.md
-yarn-*
 coverage/**
 .nyc_output/**
 .DS_Store

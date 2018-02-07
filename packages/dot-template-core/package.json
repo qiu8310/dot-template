@@ -30,6 +30,7 @@
     "exclude": []
   },
   "keywords": [
+    "dtpl",
     "template",
     "file",
     "variable"
