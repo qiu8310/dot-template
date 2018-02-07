@@ -2,9 +2,12 @@ language: node_js
 env: CI=true
 sudo: false
 
-install: npm install && npm run vscode:postinstall
+install:
+  - npm -g install lerna
+  - npm install
+  - lerna bootstrap
 
-before_script: npm run build
+# before_script: npm run build
 
 script: npm test
 

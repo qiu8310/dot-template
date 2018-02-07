@@ -10,7 +10,7 @@
   "license": "MIT",
   "scripts": {
     "prepublish": "npm run build",
-    "clear": "rm -rf out",
+    "clear": "rimraf out",
     "build": "npm run clear && tsc -p ./ && node out/install-types.js ../dot-template-types",
     "watch": "npm run clear && tsc -watch -p ./",
     "test": "nyc _mocha -R dot src/test/core/test*",
@@ -48,6 +48,7 @@
     "@types/node": "^8.0.0",
     "mocha": "~5.0.0",
     "nyc": "~11.4.0",
+    "rimraf": "2.6.2",
     "ts-node": "^4.1.0",
     "typescript": "~2.7.1"
   },

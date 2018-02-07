@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "prepublish": "npm run build",
-    "clear": "rm -rf out",
+    "clear": "rimraf out",
     "build": "npm run clear && tsc -p ./",
     "watch": "npm run clear && tsc -watch -p ./"
   },
@@ -26,6 +26,7 @@
     "@types/chokidar": "~1.7.3",
     "@types/fs-extra": "~5.0.0",
     "@types/inquirer": "~0.0.35",
+    "rimraf": "2.6.2",
     "ts-node": "^4.1.0",
     "typescript": "~2.7.1"
   },

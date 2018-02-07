@@ -33,11 +33,12 @@ function addTypingFile(result: string[], filepath: string) {
 function copy(from: string, to: string) {
   fs.ensureDirSync(path.dirname(to))
 
+  const content = fs.readFileSync(from)
   const exists = fs.existsSync(to)
-  const equals = exists && fs.readFileSync(to).equals(fs.readFileSync(from))
+  const equals = exists && fs.readFileSync(to).equals(content)
 
   if (!exists || !equals) {
     info((!exists ? '添加 ' : '更新 ') + to)
-    fs.copyFileSync(from, to)
+    fs.writeFileSync(to, content) // 奇怪 window 下没有 fs.copyFileSync 函数
   }
 }
