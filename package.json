@@ -1,8 +1,15 @@
 {
+	"name": "--dot-template--",
+	"private": true,
 	"license": "MIT",
 	"engines": {
 		"node": "^8.0.0"
 	},
+	"config": {
+    "hooks": {
+      "commit-msg": true
+    }
+  },
 	"devDependencies": {
 		"lerna": "^2.7.1"
 	}

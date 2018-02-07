@@ -193,18 +193,18 @@ export class Source {
   }
 
   /**
-   * 根据提供的文件，向上查找到所有可能有存放 .dtpl 文件夹的目录
+   * 不在递归向上查找 .dtpl 文件夹了（因为如果两个编辑器打开的项目共用一个 .dtpl 文件夹时，会出现问题）
    */
   private findAllDirectoriesCanExistsDtplFolder(): string[] {
-    let result = []
+    let result = [this.app.rootPath]
 
-    let dir = this.filePath // 不用管它是文件还是文件夹
-    result.push(dir)
+    // let dir = this.filePath // 不用管它是文件还是文件夹
+    // result.push(dir)
 
-    while (dir !== path.resolve(dir, '..')) {
-      dir = path.resolve(dir, '..')
-      result.push(dir)
-    }
+    // while (dir !== path.resolve(dir, '..')) {
+    //   dir = path.resolve(dir, '..')
+    //   result.push(dir)
+    // }
 
     if (process.env.HOME && result.indexOf(process.env.HOME) < 0) result.push(process.env.HOME)
     return result

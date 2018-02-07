@@ -1,0 +1,31 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es5",
+    "outDir": "out",
+    "noUnusedLocals": true,
+    "noImplicitAny": true,
+    "noUnusedParameters": false,
+    "noImplicitThis": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitReturns": true,
+    "strict": true,
+    "strictNullChecks": true,
+    "strictPropertyInitialization": true,
+    "experimentalDecorators": true,
+
+    "declaration": false,
+    "pretty": true,
+    "importHelpers": true,
+
+    "lib": [
+      "es2016"
+    ],
+    // "rootDir": "src", // 指定 rootDir 会使 ts 在编译外部的 dtpl.ts 文件报错
+    "sourceMap": false
+  },
+  "exclude": [
+    "node_modules",
+    ".vscode-test"
+  ]
+}

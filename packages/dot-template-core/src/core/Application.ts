@@ -54,7 +54,7 @@ export class Application {
                           .map(pattern => new minimatch.Minimatch(pattern, {dot: true}))
 
 
-      this.event.on('newFile', (filePath: string) => {
+    this.event.on('newFile', (filePath: string) => {
       // 执行命令时会创建新文件，会被检测到，要忽略它
       if (isRunning && this.cmder.fileMaybeCreatedByCommand()) return
       let relativePath = path.relative(this.rootPath, filePath)

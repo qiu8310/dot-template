@@ -1,8 +1,9 @@
 {
   "name": "dot-template-core",
-  "displayName": "Dot Template",
+  "main": "out/index",
+  "typings": "out/index.d.ts",
   "description": "create new files according to pre-defined templates",
-  "version": "0.2.6",
+  "version": "0.0.0",
   "license": "MIT",
   "scripts": {
     "clear": "rm -rf out",
@@ -25,17 +26,6 @@
     ],
     "exclude": []
   },
-  "config": {
-    "hooks": {
-      "commit-msg": true
-    }
-  },
-  "engines": {
-    "node": "^8.0.0"
-  },
-  "categories": [
-    "Other"
-  ],
   "keywords": [
     "template",
     "file",
@@ -46,10 +36,8 @@
     "url": "https://github.com/qiu8310/dot-template"
   },
   "devDependencies": {
-    "@types/chokidar": "~1.7.3",
     "@types/ejs": "~2.5.0",
     "@types/fs-extra": "~5.0.0",
-    "@types/inquirer": "~0.0.35",
     "@types/minimatch": "~3.0.1",
     "@types/mocha": "~2.2.42",
     "@types/node": "^8.0.0",
@@ -59,10 +47,8 @@
     "typescript": "~2.7.1"
   },
   "dependencies": {
-    "chokidar": "~2.0.0",
     "ejs": "~2.5.7",
     "fs-extra": "~5.0.0",
-    "inquirer": "~5.1.0",
     "minimatch": "~3.0.4",
     "mora-scripts": "~1.6.12",
     "nunjucks": "~3.0.1",

@@ -1,0 +1,10 @@
+out/test/**
+out/**/*.map
+src/**
+tsconfig.json
+TODO.md
+yarn*
+
+.DS_Store
+.nyc_output/
+dtpl.*.log

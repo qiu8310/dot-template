@@ -1,0 +1,38 @@
+{
+  "name": "dot-template-cli",
+  "description": "create new files according to pre-defined templates",
+  "version": "0.2.6",
+  "license": "MIT",
+  "scripts": {
+    "clear": "rm -rf out",
+    "build": "npm run clear && tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "bin": {
+    "dtpl": "out/cli.js"
+  },
+  "keywords": [
+    "template",
+    "file",
+    "variable"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/qiu8310/dot-template"
+  },
+  "devDependencies": {
+    "@types/chokidar": "~1.7.3",
+    "@types/fs-extra": "~5.0.0",
+    "@types/inquirer": "~0.0.35",
+    "ts-node": "^4.1.0",
+    "typescript": "~2.7.1"
+  },
+  "dependencies": {
+    "dot-template-core": "*",
+    "chokidar": "~2.0.0",
+    "fs-extra": "~5.0.0",
+    "inquirer": "~5.1.0",
+    "mora-scripts": "~1.6.12",
+    "tslib": "^1.9.0"
+  }
+}

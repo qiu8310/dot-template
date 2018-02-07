@@ -1,3 +1,7 @@
 packages/*/out
 packages/*/node_modules
 node_modules/
+
+.nyc_output/
+.DS_Store
+dtpl.*.log
