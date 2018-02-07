@@ -4,10 +4,10 @@
 	"license": "MIT",
 	"scripts": {
 		"prepublish": "npm run build",
-    "clear": "rm -rf out",
-    "build": "npm run clear && tsc -p ./",
-    "watch": "npm run clear && tsc -watch -p ./"
-  },
+		"clear": "rm -rf out",
+		"build": "npm run clear && tsc -p ./",
+		"watch": "npm run clear && tsc -watch -p ./"
+	},
 	"engines": {
 		"node": "^8.0.0"
 	},
@@ -21,7 +21,7 @@
 		"fs-extra": "~5.0.0",
 		"lerna": "^2.7.1",
 		"ts-node": "^4.1.0",
-    "typescript": "~2.7.1",
+		"typescript": "~2.7.1",
 		"mora-scripts": "1.6.19",
 		"tslib": "^1.9.0"
 	}

@@ -12,8 +12,7 @@
     "type": "git",
     "url": "https://github.com/qiu8310/dot-template"
   },
-  "devDependencies": {
-  },
+  "devDependencies": {},
   "dependencies": {
     "@types/fs-extra": "~5.0.0"
   }
