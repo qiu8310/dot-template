@@ -10,6 +10,7 @@
     "react-router-dom": "~4.2.2"
   },
   "devDependencies": {
+    "dot-template-types": "^0.0.1",
     "@types/react": "~16.0.19",
     "@types/react-dom": "~16.0.2",
     "@types/react-router": "~4.0.16",

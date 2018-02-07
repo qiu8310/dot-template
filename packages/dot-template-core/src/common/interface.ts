@@ -235,7 +235,7 @@ export interface IUserTemplate {
   /**
    * 是否使用 minimatch 去匹配 matches 中的字符串
    *
-   * 默认值为系统配置中的 `dot-template.minimatchOptions`
+   * 默认值为系统配置中的 `dot-template-vscode.minimatchOptions`
    *
    * - true：  使用 minimatch 默认的参数
    * - false:  不使用 minimatch 完全使用字符串

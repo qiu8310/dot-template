@@ -4,6 +4,7 @@
 	"license": "MIT",
 	"scripts": {
 		"prepublish": "npm run build",
+		"publish": "lerna publish --registry https://registry.npmjs.org/",
 		"clear": "rimraf out",
 		"build": "npm run clear && tsc -p ./",
 		"watch": "npm run clear && tsc -watch -p ./",

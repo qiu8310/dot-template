@@ -12,14 +12,14 @@ import * as path from 'path'
 
     2. 在此脚本中使用 console 语句是不会输出在控制面板的，因为此脚本是在
        vscode 插件中执行的，插件的输出不在当前环境中；不过你可以设置配置
-       项中的 dot-template.debug 为 true，并在此程序中执行：
+       项中的 dot-template-vscode.debug 为 true，并在此程序中执行：
 
        source.app.debug('...')
 
     3. 当 matches 是字符串时，可以只匹配 basename，但如果 matches 带
        路径时，就要从项目根路径开始匹配，否则无法匹配成功。(主要是是因为
        minimatch 的选项 matchBase 设置为 true 了，你可以用
-       dot-template.minimatchOptions 来修改默认的配置)
+       dot-template-vscode.minimatchOptions 来修改默认的配置)
  */
 
 export default function(source: _.Source): _.IDtplConfig {

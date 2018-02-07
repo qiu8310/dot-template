@@ -70,7 +70,7 @@ __* 查看此文档需要结合同目录下的 dtpl.ts 文件一起阅读，dtpl
 
 * [dot-template github 源码地址](https://github.com/qiu8310/dot-template)
 
-* [dot-template vscode 插件地址](https://marketplace.visualstudio.com/items?itemName=qiu8310.dot-template)
+* [dot-template vscode 插件地址](https://marketplace.visualstudio.com/items?itemName=qiu8310.dot-template-vscode)
 
 **如果你喜欢的话，欢迎 [给个 Star](https://github.com/qiu8310/dot-template)**
 

@@ -1,6 +1,6 @@
 # dot-template-cli
 
-dot-template 命令行工具，vscode 中可以安装 [dot-template vscode 插件](https://marketplace.visualstudio.com/items?itemName=qiu8310.dot-template)
+dot-template 命令行工具，vscode 中可以安装 [dot-template vscode 插件](https://marketplace.visualstudio.com/items?itemName=qiu8310.dot-template-vscode)
 
 ## 使用方法
 
