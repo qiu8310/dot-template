@@ -1,0 +1,27 @@
+language: node_js
+env: CI=true
+sudo: false
+
+install: npm install && npm run vscode:postinstall
+
+before_script: npm run build
+
+script: npm test
+
+os:
+  - linux
+  - osx
+
+node_js:
+  - "8"
+  - "7"
+  - "6"
+
+branches:
+  only:
+  - master
+
+notifications:
+  email:
+    - qiuzhongleiabc@126.com
+

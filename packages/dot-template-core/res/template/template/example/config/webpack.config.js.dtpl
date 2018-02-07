@@ -1,0 +1,40 @@
+const path = require('path')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
+
+const root = path.resolve(__dirname)
+const src = path.resolve(root, '${ref.fileName}')
+const dist = path.resolve(root, 'dist')
+
+const DEV = process.env.NODE_ENV !== 'production'
+
+module.exports = {
+  target: 'web',
+  entry: {
+    index: path.resolve(src, 'index.tsx')
+  },
+  output: {
+    path: dist,
+    publicPath: '',
+    filename: '[name].js'
+  },
+
+  resolve: {
+    extensions: ['.js', '.jsx', '.ts', '.tsx']
+  },
+  plugins: [
+    new ExtractTextPlugin({
+      filename: '[name].css',
+      disable: DEV
+    })
+  ],
+  module: {
+    rules: [
+      {test: /\.tsx?$/, use: 'awesome-typescript-loader'},
+      {test: /\.css$/, use: ExtractTextPlugin.extract({fallback: 'style-loader', use: [{loader: 'css-loader'}]})}
+    ]
+  },
+  devServer: {
+    contentBase: src,
+    historyApiFallback: true
+  }
+}

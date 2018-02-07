@@ -1,0 +1,30 @@
+import * as ReactDOM from 'react-dom'
+import * as React from 'react'
+
+import {HashRouter, Route, NavLink} from 'react-router-dom'
+
+import {Home} from './page/Home'
+import {About} from './page/About'
+import {Footer} from './widget/Footer'
+
+require('./index.css')
+
+ReactDOM.render((
+  <HashRouter>
+    <div>
+      <h1> dot-template: ${ref.fileName} </h1>
+      <main>
+        <aside>
+          <NavLink to='/home'>Home</NavLink>
+          <NavLink to='/about'>About</NavLink>
+        </aside>
+        <section>
+          <Route path='/' exact render={() => <div className='welcome'>Welcome to ${ref.fileName} !</div>} />
+          <Route path='/home' exact component={Home} />
+          <Route path='/about' exact component={About} />
+        </section>
+      </main>
+      <footer><Footer /></footer>
+    </div>
+  </HashRouter>
+), document.getElementById('root'))

@@ -1,0 +1,31 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "packages/dot-template-core"
+		},
+		{
+			"path": "packages/dot-template-vscode"
+		},
+		{
+			"path": "packages/dot-template-cli"
+		},
+		{
+			"path": "packages/dot-template-types"
+		}
+	],
+	"settings": {
+		"files.exclude": {
+			"*.code-workspace": true,
+			"packages": true,
+			"**/.git": true,
+			"**/.svn": true,
+			"**/.hg": true,
+			"**/CVS": true,
+			"**/.DS_Store": true
+		},
+		"typescript.tsdk": "dot-template-core/node_modules/typescript/lib"
+	}
+}

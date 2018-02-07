@@ -1,0 +1,12 @@
+out/test/**
+out/**/*.map
+src/**
+res/doc-images/
+tsconfig.json
+TODO.md
+yarn*
+coverage/**
+.nyc_output/**
+.DS_Store
+.travis.yml
+appveyor.yml

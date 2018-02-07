@@ -1,0 +1,9 @@
+{
+	"license": "MIT",
+	"engines": {
+		"node": "^8.0.0"
+	},
+	"devDependencies": {
+		"lerna": "^2.7.1"
+	}
+}

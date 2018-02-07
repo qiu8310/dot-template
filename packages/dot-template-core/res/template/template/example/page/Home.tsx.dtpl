@@ -1,0 +1,18 @@
+/**
+ * Create by $user at $datetime
+ * All right reserved
+ */
+
+import * as React from 'react'
+
+require('./style/${ModuleName}.css')
+
+export class ${ModuleName} extends React.Component<any, any> {
+  render() {
+    return (
+      <div className='p${ModuleName}'>
+        This is ${ModuleName} page
+      </div>
+    )
+  }
+}

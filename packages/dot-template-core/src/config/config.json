@@ -1,0 +1,198 @@
+{
+  "name": "dot-template",
+
+  "data": {
+    "rootPath": {
+      "type": "string",
+      "description": "项目根目录的绝对路径"
+    },
+    "npmPath": {
+      "type": "string",
+      "description": "项目下的 node_modules 目录的绝对路径"
+    },
+    "date": {
+      "type": "string",
+      "description": "当前日期，格式：yyyy-mm-dd"
+    },
+    "time": {
+      "type": "string",
+      "description": "当前时间，格式: hh-mm"
+    },
+    "datetime": {
+      "type": "string",
+      "description": "当前日期和时间，格式：yyyy-mm-dd hh-mm"
+    },
+    "user": {
+      "type": "string",
+      "description": "当前用户，通过读取环境变量中的 USER 字段而获取到的"
+    },
+    "pkg": {
+      "type": "{[key: string]: any}",
+      "description": "当前项目的 package.json 所对应的 JSON 对象"
+    },
+
+    "filePath": {
+      "type": "string",
+      "description": "当前文件的绝对路径"
+    },
+    "relativeFilePath": {
+      "type": "string",
+      "description": "当前文件相对于根目录的路径"
+    },
+    "fileName": {
+      "type": "string",
+      "description": "当前文件的名称，不带路径和后缀"
+    },
+    "fileExt": {
+      "type": "string",
+      "description": "当前文件的后缀名"
+    },
+    "dirPath": {
+      "type": "string",
+      "description": "当前文件所在的目录的绝对路径"
+    },
+    "dirName": {
+      "type": "string",
+      "description": "当前文件所在的目录的名称"
+    },
+    "rawModuleName": {
+      "type": "string",
+      "description": "fileName 的别名，即当前文件的名称（不含后缀）"
+    },
+    "moduleName": {
+      "type": "string",
+      "description": "驼峰形式的 fileName"
+    },
+    "ModuleName": {
+      "type": "string",
+      "description": "单词首字母都大写的形式的 fileName"
+    },
+    "MODULE_NAME": {
+      "type": "string",
+      "description": "所有字母都大写，中间以下划线连接的 fileName"
+    },
+    "module_name": {
+      "type": "string",
+      "description": "所有字母都小写，中间以下划线连接的 fileName"
+    },
+    "ref": {
+      "optional": true,
+      "type": "IData",
+      "description": "创建 related 文件时，原文件的 IData 对象；或者创建文件夹模板内的文件时，文件夹的 IData 对象"
+    }
+  },
+
+  "commands": {
+    "createTemplateFiles": {
+      "title": "DTPL: Create template files",
+      "key": "ctrl+k ctrl+p",
+      "mac": "cmd+k cmd+p",
+      "desc": "创建模板文件 \n1. 如果当前编辑器没有打开的文件，则会弹出输入框，可以输入你要创建的文件；\n2. 如果当前打开的文件没内容，则会去寻找合适的模板来渲染；\n3. 如果当前打开的文件有内容，则会去寻找合适的关联文件来创建"
+    },
+
+    "createRelatedFiles": {
+      "title": "DTPL: Create related files",
+      "key": "ctrl+k ctrl+s",
+      "mac": "cmd+k cmd+s",
+      "desc": "创建当前编辑器打开的文件的关联文件，如果当前编辑器没打开任何文件，则会报错"
+    },
+
+    "undoOrRedo": {
+      "title":"DTPL: Undo or Redo last action",
+      "key": "ctrl+k ctrl+u",
+      "mac": "cmd+k cmd+u",
+      "desc": "撤销或重做上次命令所做的所有修改，并且一分钟内才有效，超不一分钟无法撤销或重做（主要为了避免误操作）"
+    }
+  },
+
+  "options": {
+    "debug": {
+      "type": "boolean",
+      "default": false,
+      "description": "设置是否输出调试信息在项目根目录中的 dtpl.debug.log 文件中"
+    },
+    "noExampleWhenCreateDtplFolder": {
+      "type": "boolean",
+      "default": false,
+      "description": "新建 .dtpl 文件夹时不要创建演示用的模板"
+    },
+    "watchFilesGolbPattern": {
+      "type": "string",
+      "default": "**/*",
+      "description": "指定要监听的文件，使用了 minimatch 匹配，并开启了 dot=true，其它选项默认"
+    },
+    "commandInvalidTimeout": {
+      "type": "number",
+      "default": 60000,
+      "description": "设置命令的有效时间，过期后就无法撤销或重新执行，单位毫秒"
+    },
+    "dtplFolderName": {
+      "type": "string",
+      "default": ".dtpl",
+      "description": "文件夹的名称，用于存放模板文件及相关配置文件"
+    },
+    "dtplExtension": {
+      "type": "string",
+      "default": ".dtpl",
+      "description": "指定 dtpl 模板文件的后缀名"
+    },
+    "ejsExtension": {
+      "type": "string",
+      "default": ".ejs",
+      "description": "指定 ejs 模板文件的后缀名"
+    },
+    "njkExtension": {
+      "type": "string",
+      "default": ".njk",
+      "description": "指定 nunjucks 模板文件的后缀名"
+    },
+
+    "minimatchOptions": {
+      "type": "object",
+      "default": {
+        "matchBase": true,
+        "nocomment": true,
+        "dot": true
+      },
+      "description": "minimatch 的选项，用于匹配模板名称, 参考：https://github.com/isaacs/minimatch#options",
+      "properties": {
+        "nobrace": {
+          "type": "boolean",
+          "description": "Do not expand {a,b} and {1..3} brace sets"
+        },
+        "noglobstar": {
+          "type": "boolean",
+          "description": "Disable ** matching against multiple folder names"
+        },
+        "dot": {
+          "type": "boolean",
+          "description": "Allow patterns to match filenames starting with a period, even if the pattern does not explicitly have a period in that spot"
+        },
+        "noext": {
+          "type": "boolean",
+          "description": "Disable 'extglob style patterns like +(a|b)"
+        },
+        "nocase": {
+          "type": "boolean",
+          "description": "Perform a case-insensitive match"
+        },
+        "matchBase": {
+          "type": "boolean",
+          "description": "If set, then patterns without slashes will be matched against the basename of the path if it contains slashes"
+        },
+        "nocomment": {
+          "type": "boolean",
+          "description": "Suppress the behavior of treating # at the start of a pattern as a comment"
+        },
+        "nonegate": {
+          "type": "boolean",
+          "description": "Suppress the behavior of treating a leading ! character as negation"
+        },
+        "flipNegate": {
+          "type": "boolean",
+          "description": "Returns from negate expressions the same as if they were not negated. (Ie, true on a hit, false on a miss.)"
+        }
+      }
+    }
+  }
+}

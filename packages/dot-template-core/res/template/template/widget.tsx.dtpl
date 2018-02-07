@@ -1,0 +1,16 @@
+/**
+ * Create by $user at $datetime
+ * All right reserved
+ */
+
+import * as React from 'react'
+
+export class ${ModuleName} extends React.Component<any, any> {
+  render() {
+    return (
+      <div className='w${ModuleName}'>
+        This is ${ModuleName} widget
+      </div>
+    )
+  }
+}
