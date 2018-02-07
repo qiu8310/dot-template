@@ -3,6 +3,7 @@
 	"private": true,
 	"license": "MIT",
 	"scripts": {
+		"prepublish": "npm run build",
     "clear": "rm -rf out",
     "build": "npm run clear && tsc -p ./",
     "watch": "npm run clear && tsc -watch -p ./"

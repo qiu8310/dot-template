@@ -11,7 +11,7 @@
     import * as _ from '/Users/Mora/.vscode/extensions/qiu8310.dot-template-0.2.1/out/common/interface'
     ```
 
-    **采用了 types-dot-template 包的形式**
+    **采用了 dot-template-types 包的形式**
 
 
 * 完善 命令的前进后退机制 (DO & UNDO)

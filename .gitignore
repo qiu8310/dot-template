@@ -1,9 +1,13 @@
 out
 packages/*/out
 packages/*/node_modules
+packages/dot-template-vscode/README.md
+packages/dot-template-vscode/CHANGELOG.md
+packages/dot-template-vscode/ARTICLE_ABOUT_IT.md
 node_modules/
 .vscode-test
 
 .nyc_output/
 .DS_Store
 dtpl.*.log
+yarn-*.log

@@ -11,11 +11,12 @@
 * 自动写入项目模板中的文件
 * 自动注入文件模板到新建的文件中
 * 生成某一文件的关联文件
+* 注入内容到指定的文件中（**新功能**）
 
 
 ## 如何使用
 
-1. vscode 插件中查找并安装 `dot-template`
+1. vscode 插件中查找并安装 `dot-template-vscode`
 2. 重启 vscode
 3. 在当前打开的项目中的根目录上创建一个 `.dtpl` 的文件夹（然后跟随 vscode 弹出的提示做即可）
 
@@ -33,21 +34,21 @@ If you have any requirements or dependencies, add a section describing those and
 ## 项目配置
 
 <!--# INJECT_START configure #-->
-* `dot-template.debug`: 设置是否输出调试信息在项目根目录中的 dtpl.debug.log 文件中
-* `dot-template.noExampleWhenCreateDtplFolder`: 新建 .dtpl 文件夹时不要创建演示用的模板
-* `dot-template.watchFilesGolbPattern`: 指定要监听的文件，使用了 minimatch 匹配，并开启了 dot=true，其它选项默认
+* `dot-template-vscode.debug`: 设置是否输出调试信息在项目根目录中的 dtpl.debug.log 文件中
+* `dot-template-vscode.noExampleWhenCreateDtplFolder`: 新建 .dtpl 文件夹时不要创建演示用的模板
+* `dot-template-vscode.watchFilesGolbPattern`: 指定要监听的文件，使用了 minimatch 匹配，并开启了 dot=true，其它选项默认
      默认值： `"**/*"`
-* `dot-template.commandInvalidTimeout`: 设置命令的有效时间，过期后就无法撤销或重新执行，单位毫秒
+* `dot-template-vscode.commandInvalidTimeout`: 设置命令的有效时间，过期后就无法撤销或重新执行，单位毫秒
      默认值： `60000`
-* `dot-template.dtplFolderName`: 文件夹的名称，用于存放模板文件及相关配置文件
+* `dot-template-vscode.dtplFolderName`: 文件夹的名称，用于存放模板文件及相关配置文件
      默认值： `".dtpl"`
-* `dot-template.dtplExtension`: 指定 dtpl 模板文件的后缀名
+* `dot-template-vscode.dtplExtension`: 指定 dtpl 模板文件的后缀名
      默认值： `".dtpl"`
-* `dot-template.ejsExtension`: 指定 ejs 模板文件的后缀名
+* `dot-template-vscode.ejsExtension`: 指定 ejs 模板文件的后缀名
      默认值： `".ejs"`
-* `dot-template.njkExtension`: 指定 nunjucks 模板文件的后缀名
+* `dot-template-vscode.njkExtension`: 指定 nunjucks 模板文件的后缀名
      默认值： `".njk"`
-* `dot-template.minimatchOptions`: minimatch 的选项，用于匹配模板名称, 参考：https://github.com/isaacs/minimatch#options
+* `dot-template-vscode.minimatchOptions`: minimatch 的选项，用于匹配模板名称, 参考：https://github.com/isaacs/minimatch#options
      默认值： `{"matchBase":true,"nocomment":true,"dot":true}`
 <!--# INJECT_END #-->
 
