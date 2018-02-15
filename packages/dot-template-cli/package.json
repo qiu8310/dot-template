@@ -1,7 +1,7 @@
 {
   "name": "dot-template-cli",
   "description": "create new files according to pre-defined templates",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "license": "MIT",
   "scripts": {
     "prepublish": "npm run build",
@@ -24,15 +24,15 @@
   },
   "devDependencies": {
     "@types/chokidar": "~1.7.3",
-    "@types/node": "^8.9.0",
     "@types/fs-extra": "~5.0.0",
     "@types/inquirer": "~0.0.35",
+    "@types/node": "^8.9.0",
     "ts-node": "^4.1.0",
     "typescript": "^2.7.1"
   },
   "dependencies": {
     "chokidar": "~2.0.0",
-    "dot-template-core": "^0.0.2",
+    "dot-template-core": "^0.0.3",
     "fs-extra": "~5.0.0",
     "inquirer": "~5.1.0",
     "mora-scripts": "~1.6.20",
