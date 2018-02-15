@@ -32,7 +32,7 @@ export class VscodeEditor extends Editor {
 
   private setConfiguration(c?: vscode.WorkspaceConfiguration) {
     c = c || vscode.workspace.getConfiguration(ID)
-    this.EOL = vscode.workspace.getConfiguration('files').get('eol', os.EOL)
+    this.EOL = vscode.workspace.getConfiguration('files', null as any).get('eol', os.EOL)
     this.configuration = {
       debug: c.get('debug', false),
       noExampleWhenCreateDtplFolder: c.get('noExampleWhenCreateDtplFolder', false),
@@ -179,13 +179,16 @@ function getFileEditor(file: string) {
   return vscode.window.visibleTextEditors.find(editor => editor.document.fileName === file)
 }
 
-async function setEditorContentAsync(editor: vscode.TextEditor, content: string, posOrRange?: vscode.Position | vscode.Range): Promise<boolean> {
-  let lastLine = editor.document.lineAt(editor.document.lineCount - 1)
-  let start = new vscode.Position(0, 0)
+async function setEditorContentAsync(editor: vscode.TextEditor, content: string): Promise<boolean> {
+  // insertSnippet 时会替换 $xxx 为空（如果没有匹配到 vscode 的变量的化）
+  // await editor.insertSnippet(new vscode.SnippetString(content), posOrRange)
 
-  if (!posOrRange) posOrRange = new vscode.Range(start, lastLine.range.end)
-  let result = await editor.insertSnippet(new vscode.SnippetString(content), posOrRange)
   // 不要保存，保存了会触发 webpack 更新代码，这样不好
-  // if (result) await editor.document.save()
-  return result
+  // await editor.document.save()
+  return editor.edit(builder => {
+    let start = new vscode.Position(0, 0)
+    let lastLine = editor.document.lineAt(editor.document.lineCount - 1)
+
+    builder.replace(new vscode.Range(start, lastLine.range.end), content)
+  })
 }

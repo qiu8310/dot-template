@@ -30,7 +30,7 @@ export class AppRelied {
     let fileName = this.getSampleFile(doc)
 
     let {app} = this
-    if (app) {
+    if (app && app.dtpl) {
       let source = app.dtpl.createSource(fileName)
       let tpl = source.match(false)
       if (tpl) {

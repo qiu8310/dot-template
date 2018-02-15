@@ -6,29 +6,43 @@ import {Application} from 'dot-template-core'
 import {VscodeEditor} from '../adapter/VscodeEditor'
 
 export class App {
-  private fileSystemWatcher: vscode.FileSystemWatcher
-  public dtpl: Application
+  private fileSystemWatcher?: vscode.FileSystemWatcher
+  public dtpl?: Application
 
   get activeEditor(): vscode.TextEditor | undefined {
     return vscode.window.activeTextEditor
   }
 
   constructor() {
-    this.dtpl = new Application(new VscodeEditor())
-
-    this.fileSystemWatcher = vscode.workspace.createFileSystemWatcher('**/*', false, true, true)
-    this.fileSystemWatcher.onDidCreate(uri => this.dtpl.emitNewFile(uri.fsPath))
-
-    let r = (file: string) => path.relative(this.dtpl.rootPath, file)
-    this.dtpl.onCreatedFile(file => vscode.window.setStatusBarMessage(`文件 ${r(file)} 创建成功`))
-    this.dtpl.onUpdatedFile(file => vscode.window.setStatusBarMessage(`文件 ${r(file)} 更新成功`))
-    this.dtpl.onDeletedFile(file => vscode.window.setStatusBarMessage(`文件 ${r(file)} 删除成功`))
+    vscode.workspace.onDidChangeWorkspaceFolders(e => {
+      this.dispose()
+      this.init()
+    })
+    this.init()
   }
 
-  undoOrRedo = async () => await this.dtpl.undoOrRedo()
+  init() {
+    let {workspaceFolders} = vscode.workspace
+    if (this.dtpl || !workspaceFolders || !workspaceFolders.length) return
+
+    let dtpl = this.dtpl = new Application(new VscodeEditor())
+
+    this.fileSystemWatcher = vscode.workspace.createFileSystemWatcher('**/*', false, true, true)
+    this.fileSystemWatcher.onDidCreate(uri => dtpl.emitNewFile(uri.fsPath))
+
+    let r = (file: string) => path.relative(dtpl.rootPath, file)
+    dtpl.onCreatedFile(file => vscode.window.setStatusBarMessage(`文件 ${r(file)} 创建成功`))
+    dtpl.onUpdatedFile(file => vscode.window.setStatusBarMessage(`文件 ${r(file)} 更新成功`))
+    dtpl.onDeletedFile(file => vscode.window.setStatusBarMessage(`文件 ${r(file)} 删除成功`))
+  }
+
+  undoOrRedo = async () => {
+    if (this.dtpl) await this.dtpl.undoOrRedo()
+  }
 
   createTemplateFiles = async () => {
     const {dtpl, activeEditor} = this
+    if (!dtpl) return
     if (!activeEditor) {
       // 没有打开任何窗口就提示用户创建文件
       const input = await vscode.window.showInputBox({placeHolder: '请输入要创建的文件名（相对于根目录，多个文件用";"分隔）'})
@@ -63,6 +77,7 @@ export class App {
 
   createRelatedFiles = async () => {
     const {activeEditor, dtpl} = this
+    if (!dtpl) return
     if (!activeEditor) {
       dtpl.warning('当前没有打开的文件，无法创建关联文件')
     } else {
@@ -74,7 +89,13 @@ export class App {
   // createTemplateFolders = async () => {}
 
   dispose() {
-    this.fileSystemWatcher.dispose()
-    this.dtpl.dispose()
+    if (this.fileSystemWatcher) {
+      this.fileSystemWatcher.dispose()
+      this.fileSystemWatcher = undefined
+    }
+    if (this.dtpl) {
+      this.dtpl.dispose()
+      this.dtpl = undefined
+    }
   }
 }
