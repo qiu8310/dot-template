@@ -150,6 +150,11 @@ export interface IInject {
   data: {[key: string]: any}
 
   /**
+   * 在原文件末尾添加新数据，而不是整体替换
+   */
+  append?: boolean;
+
+  /**
    * 注入标识，默认会自动根据后缀名来判断（但并不能识别所有的后缀）
    */
   tags?: 'loose' | 'hash' | 'docs' | 'html' | string[]

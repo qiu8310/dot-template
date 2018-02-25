@@ -1,12 +1,12 @@
 {
   "inject": {
     "prefix": "inject",
-    "body": "/*# INJECT_START {\"key\": \"${1:key}\", \"append\": false} #*/\n/*# INJECT_END #*/",
+    "body": "/*# INJECT_START {\"key\": \"${1:key}\"} #*/\n/*# INJECT_END #*/",
     "description": "the tags of using mora-script to inject content"
   },
   "inject react comment": {
     "prefix": "injectr",
-    "body": "{/*# INJECT_START {\"key\": \"${1:key}\", \"append\": false} #*/}\n{/*# INJECT_END #*/}",
+    "body": "{/*# INJECT_START {\"key\": \"${1:key}\"} #*/}\n{/*# INJECT_END #*/}",
     "description": "the tags of using mora-script to inject content"
   }
 }
