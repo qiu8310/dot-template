@@ -2,7 +2,7 @@
   "name": "dot-template-vscode",
   "displayName": "Dot Template",
   "description": "create new files according to pre-defined templates",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "license": "MIT",
   "publisher": "qiu8310",
   "scripts": {
@@ -242,7 +242,7 @@
     "vscode": "^1.1.5"
   },
   "dependencies": {
-    "dot-template-core": "^0.0.3",
+    "dot-template-core": "^0.0.4",
     "fs-extra": "~5.0.0",
     "tslib": "^1.9.0"
   }
