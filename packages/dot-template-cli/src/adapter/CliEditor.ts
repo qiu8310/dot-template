@@ -9,7 +9,7 @@ export class CliEditor extends Editor {
   }
 
   async confirm(message: string): Promise<boolean> {
-    let answer = await inquirer.prompt({message, type: 'confirm', name: 'chose'})
+    let answer = await inquirer.prompt<any>({message, type: 'confirm', name: 'chose'})
     return answer.chose
   }
 
