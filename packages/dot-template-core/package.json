@@ -54,6 +54,7 @@
   "dependencies": {
     "ejs": "~2.5.7",
     "fs-extra": "~5.0.0",
+    "ignore": "^3.3.7",
     "minimatch": "~3.0.4",
     "mora-scripts": "~1.6.24",
     "nunjucks": "~3.0.1",

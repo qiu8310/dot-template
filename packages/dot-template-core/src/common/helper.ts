@@ -1,6 +1,8 @@
 import * as path from 'path'
 import * as fs from 'fs-extra'
 
+const ignore = require('ignore')
+
 /**
  * 按先后顺序一个个用 run 函数来运行 tasks 中的字段
  *
@@ -91,27 +93,15 @@ export function requireFile(file: string): any {
   return require(file)
 }
 
-
-let ignoreFileMTime = 0
-let ignoredPatterns: string[] = []
-
-export function getIgnoredPatterns(rootPath: string): string[] {
+export function getIgnore(rootPath: string): any {
   let file = path.join(rootPath, '.gitignore')
-  let mtime: number
+  let ig = ignore().add(['node_modules/**', '.git/**', '.vscode/**'])
 
   try {
-    mtime = fs.statSync(file).mtime.getTime()
-  } catch (e) { return [] }
+    ig.add(fs.readFileSync(file).toString())
+  } catch (e) {}
 
-  if (!ignoreFileMTime || ignoreFileMTime !== mtime) {
-    ignoredPatterns = fs.readFileSync(file).toString()
-      .split(/\r?\n/)
-      .map(l => l.trim())
-      .filter(l => l && l[0] !== '#')
-      .map(l => l.endsWith('/') ? l + '**' : l)
-  }
-  ignoreFileMTime = mtime
-  return ignoredPatterns
+  return ig
 }
 
 export function toArray<T>(item: undefined | T | T[]): T[] {

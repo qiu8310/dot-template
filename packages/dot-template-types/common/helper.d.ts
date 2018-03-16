@@ -27,5 +27,5 @@ export declare function unique<T, K extends keyof T>(items: T[], uniqueKey?: K):
  */
 export declare function findJsRelatedFiles(jsfile: string, fileContent: string): string[];
 export declare function requireFile(file: string): any;
-export declare function getIgnoredPatterns(rootPath: string): string[];
+export declare function getIgnore(rootPath: string): any;
 export declare function toArray<T>(item: undefined | T | T[]): T[];

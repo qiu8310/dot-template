@@ -6,7 +6,7 @@ import {Editor} from './Editor'
 import {Commander} from './Commander'
 import {Render} from './Render'
 import {Source} from './file/'
-import {getIgnoredPatterns} from './common'
+import {getIgnore} from './common'
 
 export class Application {
   private event: Events
@@ -50,15 +50,12 @@ export class Application {
 
     let isRunning = false
     let includeMatcher = new minimatch.Minimatch(this.editor.configuration.watchFilesGolbPattern, {dot: true})
-    let ignoredMatcher = [...getIgnoredPatterns(this.rootPath), 'node_modules/**', '.git/**', '.vscode/**']
-                          .map(pattern => new minimatch.Minimatch(pattern, {dot: true}))
-
 
     this.event.on('newFile', (filePath: string) => {
       // 执行命令时会创建新文件，会被检测到，要忽略它
       if (isRunning && this.cmder.fileMaybeCreatedByCommand()) return
       let relativePath = path.relative(this.rootPath, filePath)
-      if (!includeMatcher.match(relativePath) || ignoredMatcher.some(matcher => matcher.match(relativePath))) {
+      if (!includeMatcher.match(relativePath) || getIgnore(this.rootPath).ignores(relativePath)) {
         return
       }
 
