@@ -7,6 +7,7 @@ packages/dot-template-vscode/ARTICLE_ABOUT_IT.md
 node_modules/
 .vscode-test
 
+package-lock.json
 .nyc_output/
 .DS_Store
 dtpl.*.log
