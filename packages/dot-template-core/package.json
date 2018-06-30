@@ -6,7 +6,7 @@
     "install-dot-template-types": "out/install-types.js"
   },
   "description": "create new files according to pre-defined templates",
-  "version": "0.0.5",
+  "version": "0.0.7",
   "license": "MIT",
   "scripts": {
     "prepublish": "npm run build",
