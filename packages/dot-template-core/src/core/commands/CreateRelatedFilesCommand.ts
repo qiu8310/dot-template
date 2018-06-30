@@ -10,7 +10,7 @@ interface IExtendedRelated extends IRelated {
   filePath: string
 }
 
-interface IPoint {
+export interface IPoint {
   row: number
   col: number
 }
@@ -160,10 +160,10 @@ export class CreateRelatedFilesCommand extends Command {
   }
 }
 
-function calculateStartInjectPoint(content: string, reference: string): {begin: IPoint, end?: IPoint} {
+export function calculateStartInjectPoint(content: string, reference: string): {begin: IPoint, end?: IPoint} {
   let startLine = 0
   // 去掉文件开头的注释行
-  if (/^(\s*\/*[\s\S]*?\*\/)/.test(content)) {
+  if (/^(\s*\/\*[\s\S]*?\*\/)/.test(content)) {
     startLine = RegExp.$1.split(/\r?\n/).length
   }
   let lines = content.split(/\r?\n/)
@@ -189,4 +189,3 @@ function calculateStartInjectPoint(content: string, reference: string): {begin: 
     return {begin: {row: lastImportLineNumber + 1, col: 0}}
   }
 }
-

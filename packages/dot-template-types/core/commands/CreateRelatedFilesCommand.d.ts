@@ -1,5 +1,9 @@
 import { Command, ICommandInitOptions } from './Command';
 import { Application } from '../Application';
+export interface IPoint {
+    row: number;
+    col: number;
+}
 export declare class CreateRelatedFilesCommand extends Command {
     private relatedSources;
     private infos;
@@ -17,3 +21,7 @@ export declare class CreateRelatedFilesCommand extends Command {
     execute(): Promise<boolean>;
     rollback(): Promise<boolean>;
 }
+export declare function calculateStartInjectPoint(content: string, reference: string): {
+    begin: IPoint;
+    end?: IPoint;
+};
