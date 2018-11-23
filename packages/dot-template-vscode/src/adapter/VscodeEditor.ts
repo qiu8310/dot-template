@@ -32,7 +32,10 @@ export class VscodeEditor extends Editor {
 
   private setConfiguration(c?: vscode.WorkspaceConfiguration) {
     c = c || vscode.workspace.getConfiguration(ID)
-    this.EOL = vscode.workspace.getConfiguration('files', null as any).get('eol', os.EOL)
+    let eol = vscode.workspace.getConfiguration('files', null as any).get('eol', os.EOL)
+    if (!['\r', '\n', '\r\n'].includes(eol)) eol = os.EOL
+
+    this.EOL = eol
     this.configuration = {
       debug: c.get('debug', false),
       noExampleWhenCreateDtplFolder: c.get('noExampleWhenCreateDtplFolder', false),

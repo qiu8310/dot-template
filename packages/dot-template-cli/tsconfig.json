@@ -23,6 +23,9 @@
     ],
     "sourceMap": false
   },
+  "include": [
+    "src"
+  ],
   "exclude": [
     "node_modules"
   ]

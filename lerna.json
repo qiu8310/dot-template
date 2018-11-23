@@ -1,9 +1,18 @@
 {
-  "lerna": "2.7.1",
+  "lerna": "2.11.0",
   "npmClient": "npm",
   "registry": "https://registry.npmjs.org/",
   "packages": [
     "packages/*"
   ],
+  "commands": {
+    "publish": {
+      "ignore": [
+        "**/CHANGELOG.md",
+        "**/README.md",
+        "**/tsconfig.json"
+      ]
+    }
+  },
   "version": "0.0.7"
 }
