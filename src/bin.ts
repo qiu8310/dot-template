@@ -145,7 +145,7 @@ function injectReadme({options, data, commands: cs, name}: IConfig, readmePath: 
   }).join(os.EOL)
 
   // 环境变量
-  let head = [['**Variablle**', '**Type**', '**Nullable**', '**Description**']]
+  let head = [['**Variable**', '**Type**', '**Nullable**', '**Description**']]
   let environment = table(head.concat(Object.keys(data).map(key => {
     let d = data[key]
     return [code(key), code(d.type), d.optional ? 'Yes' : '', d.description]

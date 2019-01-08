@@ -317,7 +317,7 @@ dtpl mkdir your_dir
     - win 快捷键： `ctrl+k ctrl+p`
     - mac 快捷键： `cmd+k cmd+p`
 
-  创建模板文件
+  创建模板文件 
   1. 如果当前编辑器没有打开的文件，则会弹出输入框，可以输入你要创建的文件；
   2. 如果当前打开的文件没内容，则会去寻找合适的模板来渲染；
   3. 如果当前打开的文件有内容，则会去寻找合适的关联文件来创建
@@ -367,26 +367,26 @@ dtpl mkdir your_dir
 ### 渲染模板时的基本的环境变量 IData
 
 <!--# INJECT_START environment #-->
-  **Variablle**        |  **Type**                 |  **Nullable**   |  **Description**
+  **Variable**         |  **Type**                 |  **Nullable**   |  **Description**                                             
 -----------------------|---------------------------|-----------------|--------------------------------------------------------------
-  `rootPath`           |  `string`                 |                 |  项目根目录的绝对路径
-  `npmPath`            |  `string`                 |                 |  项目下的 node_modules 目录的绝对路径
-  `date`               |  `string`                 |                 |  当前日期，格式：yyyy-mm-dd
-  `time`               |  `string`                 |                 |  当前时间，格式: hh-mm
-  `datetime`           |  `string`                 |                 |  当前日期和时间，格式：yyyy-mm-dd hh-mm
-  `user`               |  `string`                 |                 |  当前用户，通过读取环境变量中的 USER 字段而获取到的
-  `pkg`                |  `{[key: string]: any}`   |                 |  当前项目的 package.json 所对应的 JSON 对象
-  `filePath`           |  `string`                 |                 |  当前文件的绝对路径
-  `relativeFilePath`   |  `string`                 |                 |  当前文件相对于根目录的路径
-  `fileName`           |  `string`                 |                 |  当前文件的名称，不带路径和后缀
-  `fileExt`            |  `string`                 |                 |  当前文件的后缀名
-  `dirPath`            |  `string`                 |                 |  当前文件所在的目录的绝对路径
-  `dirName`            |  `string`                 |                 |  当前文件所在的目录的名称
-  `rawModuleName`      |  `string`                 |                 |  fileName 的别名，即当前文件的名称（不含后缀）
-  `moduleName`         |  `string`                 |                 |  驼峰形式的 fileName
-  `ModuleName`         |  `string`                 |                 |  单词首字母都大写的形式的 fileName
-  `MODULE_NAME`        |  `string`                 |                 |  所有字母都大写，中间以下划线连接的 fileName
-  `module_name`        |  `string`                 |                 |  所有字母都小写，中间以下划线连接的 fileName
+  `rootPath`           |  `string`                 |                 |  项目根目录的绝对路径                                        
+  `npmPath`            |  `string`                 |                 |  项目下的 node_modules 目录的绝对路径                        
+  `date`               |  `string`                 |                 |  当前日期，格式：yyyy-mm-dd                                  
+  `time`               |  `string`                 |                 |  当前时间，格式: hh-mm                                       
+  `datetime`           |  `string`                 |                 |  当前日期和时间，格式：yyyy-mm-dd hh-mm                      
+  `user`               |  `string`                 |                 |  当前用户，通过读取环境变量中的 USER 字段而获取到的          
+  `pkg`                |  `{[key: string]: any}`   |                 |  当前项目的 package.json 所对应的 JSON 对象                  
+  `filePath`           |  `string`                 |                 |  当前文件的绝对路径                                          
+  `relativeFilePath`   |  `string`                 |                 |  当前文件相对于根目录的路径                                  
+  `fileName`           |  `string`                 |                 |  当前文件的名称，不带路径和后缀                              
+  `fileExt`            |  `string`                 |                 |  当前文件的后缀名                                            
+  `dirPath`            |  `string`                 |                 |  当前文件所在的目录的绝对路径                                
+  `dirName`            |  `string`                 |                 |  当前文件所在的目录的名称                                    
+  `rawModuleName`      |  `string`                 |                 |  fileName 的别名，即当前文件的名称（不含后缀）               
+  `moduleName`         |  `string`                 |                 |  驼峰形式的 fileName                                         
+  `ModuleName`         |  `string`                 |                 |  单词首字母都大写的形式的 fileName                           
+  `MODULE_NAME`        |  `string`                 |                 |  所有字母都大写，中间以下划线连接的 fileName                 
+  `module_name`        |  `string`                 |                 |  所有字母都小写，中间以下划线连接的 fileName                 
   `ref`                |  `IData`                  |  Yes            |创建 related 文件时，原文件的 IData 对象；或者创建文件夹模板内的文件时，文件夹的 IData 对象
 <!--# INJECT_END #-->
 
