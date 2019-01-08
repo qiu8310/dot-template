@@ -31,9 +31,16 @@ export class App {
     this.fileSystemWatcher.onDidCreate(uri => dtpl.emitNewFile(uri.fsPath))
 
     let r = (file: string) => path.relative(dtpl.rootPath, file)
-    dtpl.onCreatedFile(file => vscode.window.setStatusBarMessage(`文件 ${r(file)} 创建成功`))
-    dtpl.onUpdatedFile(file => vscode.window.setStatusBarMessage(`文件 ${r(file)} 更新成功`))
-    dtpl.onDeletedFile(file => vscode.window.setStatusBarMessage(`文件 ${r(file)} 删除成功`))
+
+    let sid: NodeJS.Timer
+    let showMessage = (msg: string) => {
+      clearTimeout(sid)
+      let res = vscode.window.setStatusBarMessage(msg)
+      sid = setTimeout(() => res.dispose(), 3000)
+    }
+    dtpl.onCreatedFile(file => showMessage(`文件 ${r(file)} 创建成功`))
+    dtpl.onUpdatedFile(file => showMessage(`文件 ${r(file)} 更新成功`))
+    dtpl.onDeletedFile(file => showMessage(`文件 ${r(file)} 删除成功`))
   }
 
   undoOrRedo = async () => {

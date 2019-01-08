@@ -207,7 +207,7 @@
       },
       {
         "path": "./res/snippets/inject-docs.json",
-        "language": "sass"
+        "language": "scss"
       },
       {
         "path": "./res/snippets/inject-docs.json",
