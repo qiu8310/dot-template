@@ -116,7 +116,7 @@
       "default": false,
       "description": "新建 .dtpl 文件夹时不要创建演示用的模板"
     },
-    "watchFilesGolbPattern": {
+    "watchFilesGlobPattern": {
       "type": "string",
       "default": "**/*",
       "description": "指定要监听的文件，使用了 minimatch 匹配，并开启了 dot=true，其它选项默认"

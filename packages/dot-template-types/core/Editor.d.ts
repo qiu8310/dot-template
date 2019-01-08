@@ -3,7 +3,7 @@ import { Application } from './Application';
 export interface IConfiguration {
     debug: boolean;
     noExampleWhenCreateDtplFolder: boolean;
-    watchFilesGolbPattern: string;
+    watchFilesGlobPattern: string;
     commandInvalidTimeout: number;
     dtplFolderName: string;
     minimatchOptions: IMinimatchOptions;

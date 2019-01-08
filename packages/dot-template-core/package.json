@@ -11,8 +11,8 @@
   "scripts": {
     "prepublish": "npm run build",
     "clear": "remove-all out",
+    "watch": "tsc -watch -p ./",
     "build": "npm run clear && tsc -p ./ && node out/install-types.js ../dot-template-types",
-    "watch": "npm run clear && tsc -watch -p ./",
     "test": "nyc _mocha -R dot src/test/core/test*",
     "report": "nyc report --reporter html --report-dir out/coverage"
   },

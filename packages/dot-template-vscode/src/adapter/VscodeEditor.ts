@@ -39,7 +39,7 @@ export class VscodeEditor extends Editor {
     this.configuration = {
       debug: c.get('debug', false),
       noExampleWhenCreateDtplFolder: c.get('noExampleWhenCreateDtplFolder', false),
-      watchFilesGolbPattern: c.get('watchFilesGolbPattern', '**/*'),
+      watchFilesGlobPattern: c.get('watchFilesGlobPattern', '**/*'),
       commandInvalidTimeout: c.get('commandInvalidTimeout', 60000),
       dtplFolderName: c.get('dtplFolderName', '.dtpl'),
       minimatchOptions: c.get('minimatchOptions') || {matchBase: true, nocomment: true, dot: true},

@@ -49,7 +49,7 @@ export class Application {
     }
 
     let isRunning = false
-    let includeMatcher = new minimatch.Minimatch(this.editor.configuration.watchFilesGolbPattern, {dot: true})
+    let includeMatcher = new minimatch.Minimatch(this.editor.configuration.watchFilesGlobPattern, {dot: true})
 
     this.event.on('newFile', (filePath: string) => {
       // 执行命令时会创建新文件，会被检测到，要忽略它
@@ -142,7 +142,7 @@ export class Application {
   /* istanbul ignore next */
   dispose() {
     this.editor.dispose()
-    this.editor.debug('Application destroied')
+    this.editor.debug('Application destroyed')
   }
 
   emitNewFile = (filePath: string) => this.event.emit('newFile', filePath)

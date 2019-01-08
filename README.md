@@ -36,7 +36,7 @@ If you have any requirements or dependencies, add a section describing those and
 <!--# INJECT_START configure #-->
 * `dot-template-vscode.debug`: 设置是否输出调试信息在项目根目录中的 dtpl.debug.log 文件中
 * `dot-template-vscode.noExampleWhenCreateDtplFolder`: 新建 .dtpl 文件夹时不要创建演示用的模板
-* `dot-template-vscode.watchFilesGolbPattern`: 指定要监听的文件，使用了 minimatch 匹配，并开启了 dot=true，其它选项默认
+* `dot-template-vscode.watchFilesGlobPattern`: 指定要监听的文件，使用了 minimatch 匹配，并开启了 dot=true，其它选项默认
      默认值： `"**/*"`
 * `dot-template-vscode.commandInvalidTimeout`: 设置命令的有效时间，过期后就无法撤销或重新执行，单位毫秒
      默认值： `60000`
