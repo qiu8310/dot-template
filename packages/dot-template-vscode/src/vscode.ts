@@ -2,7 +2,7 @@ import * as vscode from 'vscode'
 import {App, AutoCompletion, HoverProvider} from './app/'
 
 export function activate(context: vscode.ExtensionContext) {
-  const dtplDocumentSelector = 'dtpl'
+  const dtplDocumentSelector = {scheme: 'file', language: 'dtpl'}
   const app = new App()
 
   context.subscriptions.push(
@@ -19,4 +19,3 @@ export function activate(context: vscode.ExtensionContext) {
 
   return app
 }
-

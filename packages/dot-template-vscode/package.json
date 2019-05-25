@@ -219,6 +219,10 @@
       },
       {
         "path": "./res/snippets/inject-hash.json",
+        "language": "gitignore"
+      },
+      {
+        "path": "./res/snippets/inject-hash.json",
         "language": "shellscript"
       },
       {
