@@ -215,7 +215,7 @@
       },
       {
         "path": "./res/snippets/inject-hash.json",
-        "language": "gitignore"
+        "language": "ignore"
       },
       {
         "path": "./res/snippets/inject-hash.json",

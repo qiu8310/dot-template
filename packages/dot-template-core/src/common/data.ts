@@ -18,7 +18,7 @@ export function data(rootPath: string, filePath: string): IBasicData {
     let fileExt = path.extname(filePath)
     let fileName = path.basename(filePath, fileExt)
     let dirName = path.basename(dirPath)
-    let relativeFilePath = path.resolve(rootPath, filePath)
+    let relativeFilePath = path.relative(rootPath, filePath)
 
     return  {
       date,
