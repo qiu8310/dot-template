@@ -87,10 +87,10 @@ export abstract class Command {
   }
 
   protected async inject(tpl: Template) {
-    await series(tpl.getInjects(), async ({data, file, append, tags = 'loose' as 'loose'}) => {
+    await series(tpl.getInjects(), async ({data, file, append, eol, tags = 'loose' as 'loose'}) => {
       this.app.debug('inject %f', file)
       if (fs.existsSync(file)) {
-        let c = inject(file, data, {tags, append, returnContent: true}) as string
+        let c = inject(file, data, {tags, append, eol, returnContent: true}) as string
         await this.app.editor.setFileContentAsync(file, c)
       }
     })
