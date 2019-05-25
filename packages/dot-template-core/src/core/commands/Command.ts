@@ -17,14 +17,14 @@ export interface ICommandInitOptions {
  */
 export class CommandTimeoutError extends Error {
   constructor(command: Command, expiredSeconds: number) {
-    super(`命令已经过期 ${expiredSeconds}s 了，无法再 ${command.status === CommandStatus.INITED ? '执行' : '回滚'}`)
+    super(`命令已经过期 ${expiredSeconds}s 了，无法再 ${command.status === CommandStatus.INIT ? '执行' : '回滚'}`)
   }
 }
 
 export enum CommandStatus {
   /** 已经完成初始化 */
-  INITED,
-  /** 已经执行过了，没有 rollback， rollback 即回到了 INITED */
+  INIT,
+  /** 已经执行过了，没有 rollback， rollback 即回到了 INIT */
   EXECUTED
 }
 
@@ -50,7 +50,7 @@ export abstract class Command {
   private lastRunTimestamp?: number
 
   constructor (public name: string, protected app: Application, private options: ICommandInitOptions) {
-    this.status = CommandStatus.INITED
+    this.status = CommandStatus.INIT
   }
 
   /**
@@ -87,7 +87,7 @@ export abstract class Command {
   }
 
   protected async inject(tpl: Template) {
-    await series(tpl.getInjects(), async ({data, file, append, tags = 'loose'}) => {
+    await series(tpl.getInjects(), async ({data, file, append, tags = 'loose' as 'loose'}) => {
       this.app.debug('inject %f', file)
       if (fs.existsSync(file)) {
         let c = inject(file, data, {tags, append, returnContent: true}) as string
@@ -149,7 +149,7 @@ export abstract class Command {
       if (result) this.status = CommandStatus.EXECUTED
     } else {
       result = await this.rollback()
-      if (result) this.status = CommandStatus.INITED
+      if (result) this.status = CommandStatus.INIT
     }
 
     if (result === true) this.lastRunTimestamp = now

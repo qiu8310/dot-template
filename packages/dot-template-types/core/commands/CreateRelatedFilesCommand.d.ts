@@ -17,7 +17,7 @@ export declare class CreateRelatedFilesCommand extends Command {
      * relatedFiles 所关联的文件都是不存在的
      */
     constructor(textFile: string, app: Application, options: ICommandInitOptions);
-    private replace(content, replacer, begin, end);
+    private replace;
     execute(): Promise<boolean>;
     rollback(): Promise<boolean>;
 }

@@ -14,9 +14,9 @@ export declare class CommandTimeoutError extends Error {
 }
 export declare enum CommandStatus {
     /** 已经完成初始化 */
-    INITED = 0,
-    /** 已经执行过了，没有 rollback， rollback 即回到了 INITED */
-    EXECUTED = 1,
+    INIT = 0,
+    /** 已经执行过了，没有 rollback， rollback 即回到了 INIT */
+    EXECUTED = 1
 }
 export declare abstract class Command {
     name: string;

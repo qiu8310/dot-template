@@ -3,7 +3,7 @@ import { IObject } from './common';
 export declare enum Engine {
     dtpl = 1,
     ejs = 2,
-    njk = 3,
+    njk = 3
 }
 export declare class Render {
     private app;

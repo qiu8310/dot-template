@@ -18,11 +18,11 @@ export declare class Commander {
      */
     cursor: number;
     constructor(app: Application, length: number);
-    private runCommand(command, forward);
+    private runCommand;
     fileMaybeCreatedByCommand(): boolean | 0 | undefined;
-    private add(command);
-    private getCommonComamndOpts();
-    private wrap(fn);
+    private add;
+    private getCommonComamndOpts;
+    private wrap;
     addCreateDirectoriesCommand(folders: string[], noInitError: boolean): Promise<boolean>;
     addCreateRelatedFilesCommand(textFile: string): Promise<boolean>;
     addCreateTemplateFilesCommand(textFiles: string[], open: boolean, noInitError: boolean): Promise<boolean>;
