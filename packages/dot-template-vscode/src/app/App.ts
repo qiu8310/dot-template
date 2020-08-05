@@ -35,7 +35,7 @@ export class App {
     let sid: NodeJS.Timer
     let showMessage = (msg: string) => {
       clearTimeout(sid)
-      let res = vscode.window.setStatusBarMessage(msg)
+      let res = vscode.window.setStatusBarMessage(msg, 3000)
       sid = setTimeout(() => res.dispose(), 3000)
     }
     dtpl.onCreatedFile(file => showMessage(`文件 ${r(file)} 创建成功`))
