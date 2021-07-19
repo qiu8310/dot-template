@@ -10,7 +10,7 @@ export class Source {
 
   relativeFilePath: string
   exists: boolean
-  stats: fs.Stats | undefined
+  // stats: fs.Stats | undefined
   isFile: boolean
   isDirectory: boolean
   fileContent: string
