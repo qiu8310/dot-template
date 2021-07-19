@@ -1,5 +1,3 @@
-/// <reference types="node" />
-import * as fs from 'fs-extra';
 import { Template } from './Template';
 import { Application } from '../Application';
 import { IBasicData, IData, IUserTemplate } from '../common';
@@ -9,7 +7,6 @@ export declare class Source {
     private _basicData?;
     relativeFilePath: string;
     exists: boolean;
-    stats: fs.Stats | undefined;
     isFile: boolean;
     isDirectory: boolean;
     fileContent: string;

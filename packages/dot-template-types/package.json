@@ -1,7 +1,7 @@
 {
   "name": "dot-template-types",
   "description": "create new files according to pre-defined templates",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "typings": "index.d.ts",
   "keywords": [
     "template",
@@ -12,7 +12,5 @@
     "type": "git",
     "url": "https://github.com/qiu8310/dot-template"
   },
-  "dependencies": {
-    "@types/fs-extra": "~5.0.0"
-  }
+  "dependencies": {}
 }
