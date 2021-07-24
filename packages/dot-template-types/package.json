@@ -1,7 +1,7 @@
 {
   "name": "dot-template-types",
   "description": "create new files according to pre-defined templates",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "typings": "index.d.ts",
   "keywords": [
     "template",
