@@ -1,36 +1,20 @@
 // @ts-check
-
-// TODO: 如果使用此文件，建议安装 `dot-template-types`
-
 /*
-  注意：
-  1. 虽然 ts 文件有很强的语法提示，但默认情况下 dot-template 并不支持，
-      你需要把它编译成 js 文件并放在同目录下；不过 dot-template 也是可
-      以支持处理 ts 文件的，需要你在当前项目中安装  `ts-node` 和
-      `typescript` 组件。
-
-  2. 在此脚本中使用 console 语句是不会输出在控制面板的，因为此脚本是在
+  1. 在此脚本中使用 console 语句是不会输出在控制面板的，因为此脚本是在
       vscode 插件中执行的，插件的输出不在当前环境中；不过你可以设置配置
       项中的 dot-template-vscode.debug 为 true，并在此程序中执行：
 
       source.app.debug('...')
 
-  3. 当 matches 是字符串时，可以只匹配 basename，但如果 matches 带
+  2. 当 matches 是字符串时，可以只匹配 basename，但如果 matches 带
       路径时，就要从项目根路径开始匹配，否则无法匹配成功。(主要是是因为
       minimatch 的选项 matchBase 设置为 true 了，你可以用
       dot-template-vscode.minimatchOptions 来修改默认的配置)
 */
 
 /**
- * @typedef {import('dot-template-types').Source} Source
- * @typedef {import('dot-template-types').IData} Data
- * @typedef {import('dot-template-types').IInject} Inject
- * @typedef {import('dot-template-types').IDtplConfig} Config
- */
-
-/**
- * @param {Source} source
- * @returns {Config}
+ * @param {import('./dtpl').Source} source
+ * @returns {import('./dtpl').IDtplConfig}
  */
 function config (source) {
   return {
