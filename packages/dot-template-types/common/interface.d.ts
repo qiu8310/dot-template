@@ -1,3 +1,5 @@
+/// <reference types="node" />
+import { Stats } from 'fs';
 import { Source } from '../core/file/Source';
 import { Template } from '../core/file/Template';
 export { Source, Template };
@@ -32,7 +34,7 @@ export interface ICopySource {
     /** 文件用模板引擎渲染之后的新内容；如果是文件夹时，此字段为空字符串 */
     content: string;
     /** 复制的文件的 stats 对象 */
-    stats: any;
+    stats: Stats;
 }
 /**
  *
