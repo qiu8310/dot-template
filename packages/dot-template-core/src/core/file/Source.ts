@@ -175,7 +175,7 @@ export class Source {
    */
   private findConfigFileInDtplFolder(dtplFolder: string): string | undefined {
     let result: string | undefined
-    let names = ['dtpl.js', 'dtpl.ts']
+    let names = ['dtpl.cjs', 'dtpl.js', 'dtpl.ts']
 
     for (let n of names) {
       let f = path.join(dtplFolder, n)

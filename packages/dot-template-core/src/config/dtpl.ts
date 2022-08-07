@@ -19,13 +19,13 @@ export default function(source: _.Source): _.IDtplConfig {
         }
       },
       {
-        name: '../../res/template/top-no-example/dtpl.js.ejs',
+        name: '../../res/template/top-no-example/dtpl.cjs.ejs',
         localData: {ref: {interface: interfaceFile}},
         matches() {
           let p = source.filePath
           let dirName = path.basename(path.dirname(p))
           let fileName = path.basename(p)
-          return fileName === 'dtpl.js' && dirName === config.dtplFolderName
+          return ['dtpl.js', 'dtpl.cjs'].includes(fileName) && dirName === config.dtplFolderName
         }
       },
       {
